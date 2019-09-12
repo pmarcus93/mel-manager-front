@@ -1,3 +1,10 @@
+# MEL - Gerenciador de Eventos
+
+## Sobre 
+O MEL é um gerenciador de eventos com funcionalidades básicas para auxílio na tomada de decisões.
+Este repositório se refere ao front-end do projeto, escrito com React.
+O back end, desenvolvido com Laravel pode ser encontrado aqui.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
