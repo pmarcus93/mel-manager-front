@@ -1,0 +1,58 @@
+@import "../assets/sass/mixins";
+@import "../assets/sass/variables";
+@import "../assets/sass/defaultStyles";
+
+.img-div {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 50%;
+    margin: 5px auto;
+  }
+}
+
+.form-login {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  color: #333;
+
+  form {
+
+    margin: auto;
+
+    @include xs {
+      width: 90%;
+    }
+
+    @include lg {
+      width: 300px;
+    }
+
+    @include xl {
+      width: 350px;
+    }
+
+  }
+
+}
+
+.animate-to-down {
+  animation: ease-in-out animate-to-down 1s;
+}
+
+@keyframes animate-to-down {
+
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
