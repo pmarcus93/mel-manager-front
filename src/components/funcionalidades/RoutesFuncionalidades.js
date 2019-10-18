@@ -54,12 +54,15 @@ export default function RoutesFuncionalidades(props) {
 
             <Route path="/usuario" exact render={
                 () => (
-                    <MainComponent header={
-                        {
-                            title: 'Usuários',
-                            description: 'Gerencie usuários'
+                    <MainComponent
+                        {...props}
+                        header={
+                            {
+                                title: 'Usuários',
+                                description: 'Gerencie usuários'
+                            }
                         }
-                    }>
+                    >
                         <EmpresaList/>
                     </MainComponent>
                 )
