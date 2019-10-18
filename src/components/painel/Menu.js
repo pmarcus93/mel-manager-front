@@ -28,8 +28,8 @@ export default function Menu(props) {
 
             <div className="items-bar">
 
-                {props.itensMenu.map(menu => (
-                    <ItemMenu menu={menu}/>
+                {props.itensMenu.map((menu, i) => (
+                    <ItemMenu key={i} menu={menu}/>
                 ))}
 
             </div>

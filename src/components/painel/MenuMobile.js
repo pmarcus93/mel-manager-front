@@ -37,8 +37,8 @@ export default function MenuMobile(props) {
 
             <div className="items-bar">
 
-                {props.itensMenu.map(menu => (
-                    <ItemMenu menu={menu} closeMenu={true} actionCloseMenu={props.setControlMenu} />
+                {props.itensMenu.map((menu, i) => (
+                    <ItemMenu key={i} menu={menu} closeMenu={true} actionCloseMenu={props.setControlMenu} />
                 ))}
 
             </div>

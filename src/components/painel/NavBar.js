@@ -24,8 +24,8 @@ export default function NavBar(props) {
 
             <div className={props.controlBoxCog ? 'option-user showFadeInTop' : 'option-user'}>
 
-                {props.cogMenu.map(menu => (
-                    <ItemMenuSuspenso menu={menu}/>
+                {props.cogMenu.map((menu, i) => (
+                    <ItemMenuSuspenso key={i} menu={menu}/>
                 ))}
 
             </div>
