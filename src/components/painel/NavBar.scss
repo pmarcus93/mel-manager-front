@@ -1,0 +1,77 @@
+@import "../../../src/assets/sass/variables";
+@import "../../../src/assets/sass/mixins";
+
+.top-bar {
+  height: 64px;
+  width: 100%;
+  background: $secundary-color;
+  padding: 10px;
+  display: flex;
+  color: $primary-color;
+}
+
+.icon-menu {
+  align-self: center;
+  display: flex;
+  font-size: 1.5em;
+  cursor: pointer;
+  opacity: .7;
+  transition: all .2s ease-out;
+}
+
+.info-evento-top-bar {
+  align-self: center;
+  display: flex;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.icon-menu:hover {
+  opacity: 1;
+}
+
+.end-top-bar {
+  align-self: center;
+  margin-left: auto;
+  display: flex;
+}
+
+.end-top-bar .top-bar-item {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.option-user {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  position: absolute;
+  right: 20px;
+  top: 64px;
+  margin-top: -10px;
+  opacity: 0;
+  transition: all .2s ease-out;
+  display: flex;
+  color: #555;
+  flex-direction: column;
+  overflow: hidden;
+  height: 0;
+
+  div {
+    flex: 1;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  div:hover {
+    background: #eee;
+  }
+
+}
+
+.showFadeInTop {
+  margin-top: 0;
+  opacity: 1;
+  height: auto;
+}
