@@ -11,6 +11,7 @@ import MenuMobile from "../components/painel/MenuMobile";
 export default function PainelPage({history}) {
 
     const [hideMenu, setHideMenu] = useState(true);
+    const [arrowBack, setArrowBack] = useState(false);
     const [optionUser, setOptionUser] = useState(false);
 
     function hideSideBar() {
@@ -37,10 +38,13 @@ export default function PainelPage({history}) {
                 <NavBar clickHamburguer={() => hideSideBar()}
                         clickCog={() => setOptionUser(!optionUser)}
                         controlBoxCog={optionUser}
-                        cogMenu={ItensMenuSuspenso(history)}/>
+                        cogMenu={ItensMenuSuspenso(history)}
+                        arrowBack={arrowBack}
+                        history={history}
+                />
 
-                <div className="contend">
-                    <RoutesFuncionalidades history={history}/>
+                <div className="content">
+                    <RoutesFuncionalidades history={history} setArrowBack={setArrowBack}/>
                 </div>
             </div>
         </div>
