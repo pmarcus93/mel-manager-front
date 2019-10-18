@@ -15,11 +15,6 @@ export default function PainelPage({history}) {
 
     function hideSideBar() {
         setHideMenu(!hideMenu);
-        setDrawCanva(0);
-        setTimeout(() => {
-            setDrawCanva(100);
-        }, 350);
-
     }
 
     function closeAllPopUp() {
