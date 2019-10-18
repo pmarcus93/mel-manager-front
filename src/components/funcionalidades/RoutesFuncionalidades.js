@@ -9,13 +9,13 @@ import Empresa from "./empresa/Empresa";
 export default function RoutesFuncionalidades(props) {
     return (
         <Switch>
-            <Route path="/evento" exact render={
+            <Route path="/empresa" exact render={
                 () => (
                     <MainComponent
                         header={
                             {
-                                title: 'Eventos',
-                                description: 'Gerencie seus eventos.'
+                                title: 'Empresas',
+                                description: 'Gerencie empresas.'
                             }
                         }
 
@@ -24,7 +24,7 @@ export default function RoutesFuncionalidades(props) {
                                 text: 'Adicionar',
                                 icon: faPlusCircle,
                                 action: () => {
-                                    props.history.push('/evento/novo');
+                                    props.history.push('/empresa/novo');
                                 }
                             }
                         ]}
@@ -35,13 +35,13 @@ export default function RoutesFuncionalidades(props) {
                 )
             }/>
 
-            <Route path="/evento/novo" exact render={
+            <Route path="/empresa/novo" exact render={
                 () => (
                     <MainComponent
                         header={
                             {
-                                title: 'Novo evento',
-                                description: 'Crie um novo evento.'
+                                title: 'Nova Empresa',
+                                description: 'Crie uma novo empresa.'
                             }
                         }
 
@@ -50,7 +50,7 @@ export default function RoutesFuncionalidades(props) {
                                 text: 'Voltar',
                                 icon: faArrowAltCircleLeft,
                                 action: () => {
-                                    props.history.push('/evento');
+                                    props.history.push('/empresa');
                                 }
                             }
                         ]}
