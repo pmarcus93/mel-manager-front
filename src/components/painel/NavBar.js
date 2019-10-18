@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faCog} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faBars, faCog} from "@fortawesome/free-solid-svg-icons";
 import './NavBar.scss';
 import ItemMenuSuspenso from "./ItemMenuSuspenso";
 
@@ -8,8 +8,10 @@ export default function NavBar(props) {
 
     return (
         <div className="top-bar">
-            <div className="icon-menu" onClick={props.clickHamburguer}>
-                <FontAwesomeIcon icon={faBars}/>
+            <div className="icon-menu" onClick={props.arrowBack ? props.history.goBack : props.clickHamburguer}>
+                {props.arrowBack ? (<FontAwesomeIcon icon={faArrowLeft}/>
+                ) : (<FontAwesomeIcon icon={faBars}/>
+                )}
             </div>
 
             <div className="info-evento-top-bar"> EGPM 2020</div>
