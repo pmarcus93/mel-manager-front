@@ -6,7 +6,7 @@ import Events from "../components/selectperfil/Events";
 
 export default function SelectPerfil({history}) {
 
-    const [eventos, setEventos] = useState([{}]);
+    const [eventos, setEventos] = useState([]);
 
     useEffect(() => {
 
@@ -23,6 +23,25 @@ export default function SelectPerfil({history}) {
                         {
                             id: 2,
                             nome: '2021'
+                        }
+                    ]
+                },
+
+                {
+                    id: 2,
+                    name: 'FINECON',
+                    versoes: [
+                        {
+                            id: 1,
+                            nome: '2019'
+                        },
+                        {
+                            id: 2,
+                            nome: '2020'
+                        },
+                        {
+                            id: 3,
+                            nome: 'Teste'
                         }
                     ]
                 }
@@ -58,17 +77,22 @@ export default function SelectPerfil({history}) {
         <div className='select-perfil-page'>
 
             <div className='events animate-to-down'>
-                <img src={Logo} alt='Logo MEL Manager'/>
-                <div>
-                    {eventos.map(evento => {
-                        return <Events key={evento.id}
-                                       versoes={evento.versoes}
-                                       showVersoes={evento.show}
-                                       nome={evento.name}
-                                       clickHeader={() => handleHeaderClick(evento.id)}
-                                       clickBody={() => handleBodyClick(evento.id)}/>
-                    })}
 
+                <div className='logo-events'>
+                    <img src={Logo} alt='Logo MEL Manager'/>
+                </div>
+
+                <div>
+                    {eventos.map(evento =>
+                        <Events
+                            key={evento.id}
+                            versoes={evento.versoes}
+                            showVersoes={evento.show}
+                            nome={evento.name}
+                            clickHeader={() => handleHeaderClick(evento.id)}
+                            clickBody={() => handleBodyClick(evento.id)}
+                        />
+                    )}
                 </div>
             </div>
         </div>
