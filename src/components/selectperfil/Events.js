@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowUp, faArrowDown, faSignInAlt} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp, faArrowDown, faCheck} from "@fortawesome/free-solid-svg-icons";
 
 import './Events.scss';
 
@@ -16,12 +16,15 @@ export default function Events(props) {
 
             </div>
 
-            {props.versoes && props.versoes.map( versao => (
-                <div className={props.showVersoes ? 'body-event' : 'body-event hide-event'}
-                     onClick={() => props.clickBody(versao.id)}>
+            {props.versoes && props.versoes.map(versao => (
+                <div
+                    key={versao.id}
+                    className={props.showVersoes ? 'body-event' : 'body-event hide-event'}
+                    onClick={() => props.clickBody(versao.id)}
+                >
 
                     <span className='text'>{versao.nome}</span>
-                    <span className='icon'><FontAwesomeIcon icon={faSignInAlt}/></span>
+                    <span className='icon'><FontAwesomeIcon icon={faCheck}/></span>
 
                 </div>
             ))}
