@@ -1,0 +1,68 @@
+@import "../../../src/assets/sass/variables";
+@import "../../../src/assets/sass/mixins";
+
+.sidebar {
+  height: 100%;
+  background: #ddd;
+  padding: 0;
+  position: relative;
+  transition: all .5s ease;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  @include md {
+    width: 250px;
+    opacity: 1;
+  }
+
+}
+
+.logo-bar {
+  height: 64px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $secundary-color;
+}
+
+.logo-bar img {
+  height: 80%;
+}
+
+.perfil-avatar-bar {
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.perfil-avatar-bar img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.perfil-info-bar {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.perfil-info {
+  text-align: center;
+
+  p {
+    font-weight: 300;
+  }
+}
+
+.hide {
+  opacity: 0;
+
+  @include md {
+    margin-left: -250px;
+  }
+
+}

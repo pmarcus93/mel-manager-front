@@ -1,0 +1,72 @@
+.event {
+  width: 100%;
+  display: flex;
+  color: #333333;
+  flex-direction: column;
+
+  .header-event {
+    display: flex;
+    flex: 1;
+    color: #333333;
+    padding: 10px;
+    justify-items: center;
+    background: #ddd;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+
+    .text {
+      flex: 1;
+      align-self: center;
+      justify-self: flex-end;
+      margin: auto;
+    }
+
+    .icon {
+      align-self: center;
+      padding: 0 5px;
+    }
+
+  }
+
+  .body-event {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background: #aaa;
+    color: #333333;
+    padding: 10px;
+    justify-items: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in .2s;
+    opacity: 1;
+
+    .text {
+      flex: 1;
+      align-self: center;
+      justify-self: flex-end;
+      margin: auto;
+    }
+
+    .icon {
+      align-self: center;
+      padding: 0 5px;
+
+    }
+
+  }
+
+  .body-event:hover {
+    background: #ccc;
+
+  }
+
+  .hide-event {
+    overflow: hidden;
+    padding: 0 10px;
+    max-height: 0;
+    opacity: 0;
+  }
+
+}

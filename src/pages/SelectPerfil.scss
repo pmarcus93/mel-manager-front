@@ -1,0 +1,36 @@
+@import "../assets/sass/variables";
+@import "../assets/sass/mixins";
+@import "../assets/sass/defaultStyles";
+
+.select-perfil-page {
+  @extend %page-main;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+.events {
+  width: 500px;
+  background: #fff;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-align: center;
+
+  img {
+    height: 80px;
+    margin: 10px 0;
+  }
+
+  @include xs {
+    width: 90%;
+  }
+
+  @include lg {
+    width: 300px;
+  }
+
+  @include xl {
+    width: 350px;
+  }
+
+}
