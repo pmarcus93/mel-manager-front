@@ -5,6 +5,8 @@ import EmpresaList from "./empresa/EmpresaList";
 
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import Empresa from "./empresa/Empresa";
+import EventoList from "./evento/EventoList";
+import Evento from "./evento/Evento";
 
 export default function RoutesFuncionalidades(props) {
     return (
@@ -67,6 +69,50 @@ export default function RoutesFuncionalidades(props) {
                     </MainComponent>
                 )
             }/>
+
+
+            <Route path="/evento" exact render={
+                () => (
+                    <MainComponent
+                        {...props}
+                        header={
+                            {
+                                title: 'Eventos',
+                                description: 'Gerencie eventos'
+                            }
+                        }
+                        buttonsHeader={[
+                            {
+                                text: 'Adicionar',
+                                icon: faPlusCircle,
+                                action: () => {
+                                    props.history.push('/evento/novo');
+                                }
+                            }
+                        ]}
+                    >
+                        <EventoList/>
+                    </MainComponent>
+                )
+            }/>
+
+            <Route path="/evento/novo" exact render={
+                () => (
+                    <MainComponent
+                        {...props}
+                        header={
+                            {
+                                title: 'Eventos',
+                                description: 'Criação de novo evento'
+                            }
+                        }
+                        arrowBack={true}
+                    >
+                        <Evento {...props}/>
+                    </MainComponent>
+                )
+            }/>
+
 
         </Switch>
     )

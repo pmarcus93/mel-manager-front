@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const endPoint = 'http://mel.marcuspereira.com/api/';
+const endPoint = 'http://127.0.0.1:8000/api/';
 var tokenAtual = '';
 var header = {};
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from "../components/painel/NavBar";
 import Menu from "../components/painel/Menu";
 
@@ -13,6 +13,13 @@ export default function PainelPage({history}) {
     const [hideMenu, setHideMenu] = useState(true);
     const [arrowBack, setArrowBack] = useState(false);
     const [optionUser, setOptionUser] = useState(false);
+    const [loggedUser, setLoggedUser] = useState({});
+
+    useEffect(()=> {
+        setLoggedUser({
+            user_id: 1
+        })
+    }, []);
 
     function hideSideBar() {
         setHideMenu(!hideMenu);
@@ -44,7 +51,7 @@ export default function PainelPage({history}) {
                 />
 
                 <div className="content">
-                    <RoutesFuncionalidades history={history} setArrowBack={setArrowBack}/>
+                    <RoutesFuncionalidades history={history} setArrowBack={setArrowBack} loggedUser={loggedUser}/>
                 </div>
             </div>
         </div>
