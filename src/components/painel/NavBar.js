@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faBars, faCog} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faCog} from "@fortawesome/free-solid-svg-icons";
 import './NavBar.scss';
 import ItemMenuSuspenso from "./ItemMenuSuspenso";
 
@@ -8,9 +8,8 @@ export default function NavBar(props) {
 
     return (
         <div className="top-bar">
-            <div className="icon-menu" onClick={props.arrowBack ? props.history.goBack : props.clickHamburguer}>
-                {props.arrowBack ? (<FontAwesomeIcon icon={faArrowLeft}/>
-                ) : (<FontAwesomeIcon icon={faBars}/>
+            <div className="icon-menu" onClick={props.arrowBack && props.history.goBack}>
+                {props.arrowBack && (<FontAwesomeIcon icon={faArrowLeft}/>
                 )}
             </div>
 
