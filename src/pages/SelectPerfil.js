@@ -2,63 +2,21 @@ import React, {useState, useEffect} from 'react';
 import './SelectPerfil.scss';
 import Logo from '../assets/img/logo.png';
 import Events from "../components/selectperfil/Events";
+import {retornarEventosUsuario} from "../services/EventoService";
 
-
-export default function SelectPerfil({history}) {
+export default function SelectPerfil(props) {
 
     const [eventos, setEventos] = useState([]);
 
     useEffect(() => {
-
-        function buscaEventos() {
-            var eventos = [
-                {
-                    id: 1,
-                    name: 'EGPM',
-                    versoes: [
-                        {
-                            id: 1,
-                            nome: '2020'
-                        },
-                        {
-                            id: 2,
-                            nome: '2021'
-                        }
-                    ]
-                },
-
-                {
-                    id: 2,
-                    name: 'FINECON',
-                    versoes: [
-                        {
-                            id: 1,
-                            nome: '2019'
-                        },
-                        {
-                            id: 2,
-                            nome: '2020'
-                        },
-                        {
-                            id: 3,
-                            nome: 'Teste'
-                        }
-                    ]
-                }
-
-            ];
-
-            setEventos(eventos);
-        }
-
-        buscaEventos();
+         retornarEventosUsuario(1, setEventos);
     }, []);
 
     function handleHeaderClick(id) {
 
         setEventos(eventos.map(evento => {
 
-            if (+evento.id === +id) {
+            if (+evento.evento_id === +id) {
                 evento.show = !evento.show;
             }
 
@@ -68,9 +26,10 @@ export default function SelectPerfil({history}) {
 
     }
 
-    function handleBodyClick() {
-        //Setar Local Storage
-        history.push('/');
+    function handleBodyClick(evento_id, edicao_id) {
+        localStorage.setItem('evento_id', evento_id);
+        localStorage.setItem('edicao_id', edicao_id);
+        props.history.push('/');
     }
 
     return (
@@ -85,12 +44,12 @@ export default function SelectPerfil({history}) {
                 <div>
                     {eventos.map(evento =>
                         <Events
-                            key={evento.id}
-                            versoes={evento.versoes}
+                            key={evento.evento_id}
+                            edicoes={evento.edicoes}
                             showVersoes={evento.show}
-                            nome={evento.name}
-                            clickHeader={() => handleHeaderClick(evento.id)}
-                            clickBody={() => handleBodyClick(evento.id)}
+                            evento={evento}
+                            clickHeader={() => handleHeaderClick(evento.evento_id)}
+                            clickBody={handleBodyClick}
                         />
                     )}
                 </div>

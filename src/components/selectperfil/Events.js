@@ -8,19 +8,23 @@ export default function Events(props) {
 
     return (
         <div className='event'>
-            <div className='header-event'
-                 onClick={props.clickHeader}>
 
-                <span className='text'><h2>{props.nome}</h2></span>
-                <span className='icon'><FontAwesomeIcon icon={props.showVersoes ? faArrowUp : faArrowDown}/></span>
+            {props.edicoes.length > 0 && (
+                <div className='header-event'
+                     onClick={props.clickHeader}>
 
-            </div>
+                    <span className='text'><h2>{props.evento.nome}</h2></span>
+                    <span className='icon'><FontAwesomeIcon icon={props.showVersoes ? faArrowUp : faArrowDown}/></span>
 
-            {props.versoes && props.versoes.map(versao => (
+                </div>
+            )}
+
+
+            {props.edicoes && props.edicoes.map(versao => (
                 <div
-                    key={versao.id}
+                    key={versao.edicao_id}
                     className={props.showVersoes ? 'body-event' : 'body-event hide-event'}
-                    onClick={() => props.clickBody(versao.id)}
+                    onClick={() => props.clickBody(props.evento.evento_id, versao.edicao_id)}
                 >
 
                     <span className='text'>{versao.nome}</span>

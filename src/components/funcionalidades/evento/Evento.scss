@@ -1,0 +1,12 @@
+.card-default {
+  width: 100%;
+  margin: 10px auto;
+  cursor: pointer;
+  height: 100%;
+  transition: ease-in-out 0.2s;
+}
+
+.card-default:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+}

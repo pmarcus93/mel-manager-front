@@ -17,13 +17,13 @@
     text-align: center;
 
     img {
-      width: 50%;
+      height: 80px;
       margin: 10px 0;
     }
   }
 
   @include sm {
-    width: 350px;
+    width: 40%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 

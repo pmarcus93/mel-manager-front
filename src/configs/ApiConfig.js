@@ -25,13 +25,17 @@ export function setToken(token) {
  */
 export function post(url, data, onSuccess, onFailure) {
     axios.post(endPoint + url, data).then(response => {
-        onSuccess(response);
+        // onSuccess(response);
     }).catch(erro => {
-        onFailure(erro.response);
+        // onFailure(erro.response);
     })
 }
 
-export function get(url) {
-    axios.get(endPoint + url)
+export function get(url, setFunction) {
+    axios.get(endPoint + url).then(response => {
+        setFunction(response.data.data);
+    }).catch(error => {
+
+    })
 }
 

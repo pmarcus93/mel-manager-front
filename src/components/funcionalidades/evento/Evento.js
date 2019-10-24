@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSave} from "@fortawesome/free-solid-svg-icons";
-import {salvarEvento} from "../../../services/EventoService";
+import {salvarEvento, retornarEventoComEdicoes} from "../../../services/EventoService";
+import {defaultProps} from 'recompose';
 
 
 export default function Evento(props) {
@@ -18,6 +19,16 @@ export default function Evento(props) {
         salvarEvento(evento);
 
     };
+
+
+    useEffect(() => {
+
+        //Buscar Evento
+        if (props.params.evento_id) {
+            retornarEventoComEdicoes(props.params.evento_id);
+        }
+
+    }, [props.params.evento_id]);
 
     return (
         <div className='row funcionalidade-padrao'>
@@ -39,3 +50,9 @@ export default function Evento(props) {
     )
 
 }
+
+const withDefaultProps = defaultProps({
+    params: {}
+});
+
+Evento = withDefaultProps(Evento);

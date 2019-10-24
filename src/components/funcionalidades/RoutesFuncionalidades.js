@@ -7,6 +7,8 @@ import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import Empresa from "./empresa/Empresa";
 import EventoList from "./evento/EventoList";
 import Evento from "./evento/Evento";
+import UsuarioList from "./usuario/UsuarioList";
+import Usuario from "./usuario/Usuario";
 
 export default function RoutesFuncionalidades(props) {
     return (
@@ -64,8 +66,34 @@ export default function RoutesFuncionalidades(props) {
                                 description: 'Gerencie usuários'
                             }
                         }
+                        buttonsHeader={[
+                            {
+                                text: 'Adicionar',
+                                icon: faPlusCircle,
+                                action: () => {
+                                    props.history.push('/usuario/novo');
+                                }
+                            }
+                        ]}
                     >
-                        <EmpresaList/>
+                        <UsuarioList {...props}/>
+                    </MainComponent>
+                )
+            }/>
+
+            <Route path="/usuario/novo" exact render={
+                () => (
+                    <MainComponent
+                        {...props}
+                        header={
+                            {
+                                title: 'Usuários',
+                                description: 'Criar um novo usuários'
+                            }
+                        }
+                        arrowBack={true}
+                    >
+                        <Usuario {...props}/>
                     </MainComponent>
                 )
             }/>
@@ -91,7 +119,7 @@ export default function RoutesFuncionalidades(props) {
                             }
                         ]}
                     >
-                        <EventoList/>
+                        <EventoList {...props}/>
                     </MainComponent>
                 )
             }/>
@@ -113,6 +141,33 @@ export default function RoutesFuncionalidades(props) {
                 )
             }/>
 
+            <Route path="/evento/:evento_id" exact render={
+                ({match}) => (
+                    <MainComponent
+                        {...props}
+                        header={
+                            {
+                                title: 'Eventos',
+                                description: 'Edição de eventos'
+                            }
+                        }
+                        buttonsHeader={[
+                            {
+                                text: 'Adicionar',
+                                icon: faPlusCircle,
+                                action: () => {
+                                    props.history.push('/evento/novo');
+                                }
+                            }
+                        ]}
+                        arrowBack={true}
+                    >
+                        <Evento
+                            {...props}
+                            params={match.params}/>
+                    </MainComponent>
+                )
+            }/>
 
         </Switch>
     )
