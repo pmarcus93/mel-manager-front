@@ -1,4 +1,5 @@
-# MEL - Gerenciador de Eventos
+![MEL Eventos - Logo](https://user-images.githubusercontent.com/6492177/68326377-14b3f600-00aa-11ea-964c-4b8716fa7c07.png)
+## Gerencie seus eventos de forma descomplicada!
 
 ## Sobre 
 O MEL é um gerenciador de eventos com funcionalidades básicas para auxílio na tomada de decisões.
