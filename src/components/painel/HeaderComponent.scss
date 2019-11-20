@@ -1,0 +1,55 @@
+@import "../../../src/assets/sass/variables";
+@import "../../../src/assets/sass/mixins";
+
+.header {
+  margin: 40px 0;
+  color: white;
+  display: flex;
+
+  h4 {
+    font-weight: 100;
+  }
+
+}
+
+.buttons-actions {
+  margin-left: auto;
+  align-self: center;
+
+  //No Mobile os botões serão fixos na base da tela
+
+  button {
+    transition: .2s all ease-out;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #182848;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+
+    @include md {
+      background: none;
+      color: white;
+      border: 1px solid white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      position: relative;
+      bottom: auto;
+      right: auto;
+    }
+
+  }
+
+  button:hover {
+    @include md {
+      background: white;
+      color: #222222;
+    }
+  }
+
+}
+

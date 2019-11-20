@@ -1,0 +1,29 @@
+.event {
+  max-width: 100%;
+  display: flex;
+  color: #333333;
+  flex-direction: row;
+  transition: all .2s ease-in;
+  background: #eee;
+  flex: 1;
+  padding: 10px;
+  justify-items: center;
+  cursor: pointer;
+
+  .text {
+    flex: 1;
+    align-self: center;
+    justify-self: flex-end;
+    margin: auto;
+  }
+
+  .icon {
+    align-self: center;
+    padding: 5px;
+  }
+
+}
+
+.event:hover {
+  background: #ccc;
+}

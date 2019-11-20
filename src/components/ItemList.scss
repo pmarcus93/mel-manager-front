@@ -1,0 +1,16 @@
+@import "../assets/sass/defaultStyles";
+
+.item-list-buttons {
+  display: flex;
+  margin: auto auto auto 0;
+
+  button {
+    margin-left: 5px;
+  }
+
+}
+
+.descricao-item-list {
+  font-size: .8em;
+  font-weight: normal;
+}

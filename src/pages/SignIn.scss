@@ -1,0 +1,63 @@
+@import "../assets/sass/mixins";
+@import "../assets/sass/variables";
+.cadastre-se-form {
+
+  margin: auto;
+
+  @include xs {
+    width: 90%;
+  }
+
+  @include sm {
+    width: 300px;
+  }
+
+  @include lg {
+    width: 300px;
+  }
+
+  @include xl {
+    width: 400px;
+  }
+}
+
+.header-sign-in {
+  color: #3E2315;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 50px;
+
+}
+
+.back-login-page-sign-in {
+  text-align: center;
+  color: #eeeeee;
+  font-size: 1.2em;
+  margin-top: 40px;
+
+  span {
+    cursor: pointer;
+    transition: opacity .2s ease-in-out;
+  }
+
+  span:hover {
+    opacity: 0.5;
+  }
+}
+
+.success-sign-in {
+  color: #eeeeee;
+  font-size: 1.2em;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 50px;
+
+  background: #325863;
+  padding: 30px 10px;
+  border-radius: 5px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,62 @@
+@import "../../../assets/sass/variables";
+
+.card-default {
+  //min-width: 100%;
+  //transition: ease-in-out 0.2s;
+  background: #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+  padding: 15px 15px;
+
+  .info-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: auto 0;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+
+}
+
+.card-default:hover {
+  //box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+  background: $primary-color-mel-contrast;
+}
+
+.box-pesquisa-text {
+  border-radius: 5px;
+  background: #ccc;
+  margin-top: 5px;
+}
+
+.box-pesquisa-text-resultado {
+  padding: 10px;
+  background: #ccc;
+  transition: all .2s ease-in;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.box-pesquisa-text-resultado:hover {
+  background: $primary-color-mel-contrast;
+}
+
+.titulo-estilizado {
+  background: #eee;
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+
+.item-list-empty {
+  text-align: center;
+  margin: auto;
+  background: $primary-color-mel-contrast;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+
+}

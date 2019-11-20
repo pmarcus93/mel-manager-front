@@ -1,0 +1,24 @@
+@import "../../../src/assets/sass/variables.sass";
+
+.item-bar {
+  padding: 10px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+
+.item-bar:hover {
+  background: $primary-color-mel;
+}
+
+.item-bar .icon-bar {
+  //margin-right: 10px;
+}
+
+.icon-bar {
+  width: 30px;
+  display: inline-block;
+  text-align: center;
+}
+

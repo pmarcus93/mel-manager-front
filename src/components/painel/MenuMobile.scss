@@ -1,0 +1,91 @@
+//@import "../../../src/assets/sass/variables";
+//@import "../../../src/assets/sass/mixins";
+//
+//.sidebar-mobile {
+//  height: 100%;
+//  background: $primary-color-mel-contrast;
+//  padding: 0;
+//  position: absolute;
+//  transition: all .5s ease;
+//  width: 100%;
+//  opacity: 1;
+//  overflow: hidden;
+//  z-index: 2;
+//
+//  @include md {
+//    width: 0;
+//    opacity: 1;
+//    overflow: hidden;
+//  }
+//
+//}
+//
+//.menu-nav-bar-mobile {
+//  height: 64px;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  background: $primary-color-mel-contrast;
+//  color: #ffffff;
+//}
+//
+//.arrow-back-menu-mobile {
+//  align-self: center;
+//  display: flex;
+//  font-size: 1.5em;
+//  cursor: pointer;
+//  opacity: .7;
+//  margin-left: 20px;
+//  transition: all .2s ease-out;
+//}
+//
+//.arrow-back-menu-mobile:hover {
+//  opacity: 1;
+//}
+//
+//.logo-bar {
+//  text-align: center;
+//  margin: auto;
+//}
+//
+//.logo-bar img {
+//  height: 80%;
+//}
+//
+//
+//.perfil-avatar-bar {
+//  height: 80px;
+//  width: 80px;
+//  overflow: hidden;
+//  border-radius: 50%;
+//  margin: auto;
+//}
+//
+//.perfil-avatar-bar img {
+//  object-fit: cover;
+//  height: 100%;
+//  width: 100%;
+//}
+//
+//.perfil-info-bar {
+//  width: 100%;
+//  padding: 40px 0;
+//}
+//
+//.perfil-info {
+//  text-align: center;
+//
+//  p {
+//    font-weight: 300;
+//  }
+//}
+//
+//.hide-mobile {
+//  margin-left: -100%;
+//  opacity: 0;
+//
+//  @include md {
+//    margin-left: 0;
+//    opacity: 1;
+//  }
+//}

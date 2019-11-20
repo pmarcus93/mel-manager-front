@@ -1,0 +1,134 @@
+@import "../assets/sass/mixins";
+@import "../assets/sass/variables";
+@import "../assets/sass/defaultStyles";
+
+.page-main-login {
+  @extend %page-main;
+  //background: $primary-color-mel;
+  background: $primary-color-mel-contrast;
+}
+
+.img-div {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 70%;
+    margin: 5px auto;
+  }
+}
+
+.form-login {
+
+  overflow: hidden;
+  display: flex;
+  color: $primary-color-mel;
+  flex-direction: column;
+  margin: auto;
+
+  @include xs {
+    width: 90%;
+  }
+
+  @include lg {
+    width: 300px;
+  }
+
+  @include xl {
+    width: 400px;
+  }
+
+  .login-cadastre-se {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+}
+
+.login-ou-text {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.animate-to-down {
+  animation: ease-in-out animate-to-down 1s;
+}
+
+@keyframes animate-to-down {
+
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
+
+.mel-input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom:  10px;
+  background: none;
+  border: 2px solid #3E2315;
+  border-radius: 5px;
+  color: #3E2315;
+  font-weight: 400;
+  transition: ease-in-out .2s all;
+}
+
+.mel-input::-webkit-input-placeholder{
+  color: #3E2315;
+}
+
+.mel-input:focus {
+  outline: 0;
+}
+
+.btn-mel-login {
+  padding: 10px;
+  width: 100%;
+  background: #3E2315;
+  border-radius: 5px;
+  border: none;
+  color: $primary-color-mel-contrast;
+  font-weight: bold;
+  transition: all ease-in-out .2s;
+}
+
+.btn-mel-login-variant {
+  padding: 10px;
+  width: 100%;
+  background: #3E2315;
+  border-radius: 5px;
+  //border: #fff 2px solid;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all ease-in-out .2s;
+}
+
+
+.btn-mel-login:hover, .btn-mel-login-variant:hover {
+  background: #fff;
+  color: #3E2315;
+}
+
+.btn-mel-login:focus {
+outline: 0;
+}
+
+.erro-login {
+  text-align: center;
+  font-weight: 600;
+  padding: 20px 5px;
+  background: $primary-color-mel;
+  color: $primary-color-mel-contrast;
+  margin: 10px auto;
+  border-radius: 5px;
+}
