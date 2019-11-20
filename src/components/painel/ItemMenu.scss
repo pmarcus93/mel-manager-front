@@ -7,12 +7,18 @@
   transition: all .2s ease;
 }
 
+
 .item-bar:hover {
-  background: #ccc;
-  border-left: solid 5px $secundary-color;
+  background: $primary-color-mel;
 }
 
 .item-bar .icon-bar {
-  margin-right: 10px;
+  //margin-right: 10px;
+}
+
+.icon-bar {
+  width: 30px;
+  display: inline-block;
+  text-align: center;
 }
 

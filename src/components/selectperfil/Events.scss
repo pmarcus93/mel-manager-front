@@ -1,72 +1,29 @@
 .event {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   color: #333333;
-  flex-direction: column;
+  flex-direction: row;
+  transition: all .2s ease-in;
+  background: #eee;
+  flex: 1;
+  padding: 10px;
+  justify-items: center;
+  cursor: pointer;
 
-  .header-event {
-    display: flex;
+  .text {
     flex: 1;
-    color: #333333;
-    padding: 10px;
-    justify-items: center;
-    background: #eee;
-    align-items: center;
-    cursor: pointer;
-    margin: 0;
-
-    .text {
-      flex: 1;
-      align-self: center;
-      justify-self: flex-end;
-      margin: auto;
-    }
-
-    .icon {
-      align-self: center;
-      padding: 0 5px;
-    }
-
+    align-self: center;
+    justify-self: flex-end;
+    margin: auto;
   }
 
-  .body-event {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    background: #ddd;
-    color: #333333;
-    padding: 10px;
-    justify-items: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all ease-in .2s;
-    opacity: 1;
-
-    .text {
-      flex: 1;
-      align-self: center;
-      justify-self: flex-end;
-      margin: auto;
-    }
-
-    .icon {
-      align-self: center;
-      padding: 0 5px;
-
-    }
-
+  .icon {
+    align-self: center;
+    padding: 5px;
   }
 
-  .body-event:hover {
-    background: #ccc;
+}
 
-  }
-
-  .hide-event {
-    overflow: hidden;
-    padding: 0 10px;
-    max-height: 0;
-    opacity: 0;
-  }
-
+.event:hover {
+  background: #ccc;
 }

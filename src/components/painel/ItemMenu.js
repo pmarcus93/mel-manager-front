@@ -13,7 +13,9 @@ export default function ItemMenu(props) {
             } : props.menu.action}
 
             className="item-bar">
-            <span className="icon-bar"> <FontAwesomeIcon icon={props.menu.icon}/></span>
+            <span className="icon-bar">
+                <FontAwesomeIcon icon={props.menu.icon}/>
+            </span>
             <span> {props.menu.text} </span>
         </div>
     );

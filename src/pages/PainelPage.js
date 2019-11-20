@@ -6,20 +6,49 @@ import {ItensMenu, ItensMenuSuspenso} from "../configs/Menus";
 
 import './PainelPage.scss';
 import RoutesFuncionalidades from "../components/funcionalidades/RoutesFuncionalidades";
-import MenuMobile from "../components/painel/MenuMobile";
 
-export default function PainelPage({history}) {
+
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {retornarEventoEdicao} from "../services/EventoEdicaoService";
+import {retornarEvento} from "../services/EventoService";
+
+export default function PainelPage(props) {
 
     const [hideMenu, setHideMenu] = useState(true);
     const [arrowBack, setArrowBack] = useState(false);
     const [optionUser, setOptionUser] = useState(false);
     const [loggedUser, setLoggedUser] = useState({});
 
-    useEffect(()=> {
+    const [currentEvent, setCurrentEvent] = useState({});
+    const [currentEdicao, setCurrentEdicao] = useState({});
+
+
+    useEffect(() => {
+
+        if (!localStorage.getItem('userLogged')) {
+            props.history.push('/login');
+        }
+
         setLoggedUser({
-            user_id: 1
-        })
+            user_id: localStorage.getItem('userLogged')
+        });
+
     }, []);
+
+
+    useEffect(() => {
+        if (props.evento_id) {
+            retornarEvento(props.evento_id, setCurrentEvent);
+        }
+    }, [props.evento_id]);
+
+
+    useEffect(() => {
+        if (props.edicao_id) {
+            retornarEventoEdicao(props.edicao_id, setCurrentEdicao);
+        }
+    }, [props.edicao_id]);
 
     function hideSideBar() {
         setHideMenu(!hideMenu);
@@ -29,29 +58,45 @@ export default function PainelPage({history}) {
         optionUser && setOptionUser(!optionUser);
     }
 
+    function clickTitle() {
+        props.history.push('/evento');
+    }
+
     return (
         <div className="wrapper p-0 " onClick={closeAllPopUp}>
 
-            <Menu controlMenu={hideMenu}
-                  itensMenu={ItensMenu(history)}/>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
 
-            <MenuMobile controlMenu={hideMenu}
-                        itensMenu={ItensMenu(history)}
-                        setControlMenu={() => {
-                            setHideMenu(!hideMenu)
-                        }}/>
+            <NavBar clickHamburguer={() => hideSideBar()}
+                    clickCog={() => setOptionUser(!optionUser)}
+                    controlBoxCog={optionUser}
+                    cogMenu={ItensMenuSuspenso(props.history)}
+                    arrowBack={arrowBack}
+                    history={props.history}
+                    title={currentEvent.nome}
+                    subtitle={currentEdicao.nome}
+                    clickTitle={clickTitle}
+            />
+
+            <Menu
+                {...props}
+                loggedUser={loggedUser}
+                controlMenu={hideMenu}
+                itensMenu={ItensMenu(props.history)}/>
 
             <div className="main">
-                <NavBar clickHamburguer={() => hideSideBar()}
-                        clickCog={() => setOptionUser(!optionUser)}
-                        controlBoxCog={optionUser}
-                        cogMenu={ItensMenuSuspenso(history)}
-                        arrowBack={arrowBack}
-                        history={history}
-                />
-
                 <div className="content">
-                    <RoutesFuncionalidades history={history} setArrowBack={setArrowBack} loggedUser={loggedUser}/>
+                    <RoutesFuncionalidades history={props.history} setArrowBack={setArrowBack} loggedUser={loggedUser} {...props} />
                 </div>
             </div>
         </div>

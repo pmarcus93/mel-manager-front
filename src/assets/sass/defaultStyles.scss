@@ -1,5 +1,39 @@
+@import "variables";
+
 %page-main, .page-main {
   width: 100%;
   height: 100%;
   display: flex;
 }
+
+%btn-mel, .btn-mel {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all ease-in-out .2s;
+}
+
+%btn-primary-mel, .btn-primary-mel {
+  @extend %btn-mel;
+  background: #325863;
+  color: $primary-color-mel-contrast;
+  font-weight: normal;
+}
+
+%btn-primary-mel-color, .btn-primary-mel-color {
+  background: #325863;
+  color: $primary-color-mel-contrast;
+  font-weight: normal;
+}
+
+%btn-primary-mel-color:hover, .btn-primary-mel-color:hover {
+  background: $primary-color-mel;
+  color: $primary-color-mel-contrast;
+}
+
+%btn-primary-mel:hover, .btn-primary-mel:hover {
+  background: $primary-color-mel;
+}
+

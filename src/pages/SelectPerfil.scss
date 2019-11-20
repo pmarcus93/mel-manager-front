@@ -5,6 +5,8 @@
 .select-perfil-page {
   @extend %page-main;
   //background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  background: #ddd;
+  overflow: scroll;
 }
 
 .events {
@@ -12,19 +14,43 @@
   border-radius: 5px;
   overflow: hidden;
   width: 90%;
-
-  .logo-events {
-    text-align: center;
-
-    img {
-      height: 80px;
-      margin: 10px 0;
-    }
-  }
+  font-weight: 600;
+  background: $primary-color-mel-contrast;
 
   @include sm {
-    width: 40%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    //box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
+}
+
+.empty-select-eventos {
+  padding: 10px;
+  background: #eee;
+}
+
+.buttons-event {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.button-event {
+  padding: 10px;
+  background: #eee;
+  display: flex;
+  transition: ease-in-out .2s all;
+
+  span {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .icon {
+    margin-left: auto;
+    padding: 5px;
+  }
+}
+
+.button-event:hover {
+  background: #ccc;
 }

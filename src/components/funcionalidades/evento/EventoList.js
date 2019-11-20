@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Evento.scss';
 import {retornarEventosUsuario} from "../../../services/EventoService";
-import CardImageActions from "../../CardImageAction";
+import ItemList from "../../ItemList";
 import Loading from "../../Loading";
 
 export default function EventoList(props) {
@@ -11,8 +11,7 @@ export default function EventoList(props) {
 
     const buscaEventos = async function () {
         setLoading(true);
-        await retornarEventosUsuario(1, setEventos);
-        setLoading(false);
+        await retornarEventosUsuario(1, setEventos, () => setLoading(false));
 
     };
 
@@ -21,17 +20,17 @@ export default function EventoList(props) {
     }, []);
 
     return (
-        <div className='row '>
+        <div className='row funcionalidade-padrao'>
 
             {loading ? (
                 <Loading/>
             ) : (
-                <div className='col-12 card-group'>
+                <div className='col-12'>
                     <div className='row'>
                         {eventos.map(evento => (
 
-                            <div className='card-evento col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3'>
-                                <CardImageActions
+                            <div className='card-evento col-12 my-1'>
+                                <ItemList
                                     nome={evento.nome}
                                     actionButton={() => props.history.push('/evento/' + evento.evento_id)}
                                 />

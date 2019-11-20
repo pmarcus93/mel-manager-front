@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faCog} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faBars, faCalendarAlt, faCog, faStar} from "@fortawesome/free-solid-svg-icons";
 import './NavBar.scss';
 import ItemMenuSuspenso from "./ItemMenuSuspenso";
 
@@ -8,12 +8,27 @@ export default function NavBar(props) {
 
     return (
         <div className="top-bar">
-            <div className="icon-menu" onClick={props.arrowBack && props.history.goBack}>
-                {props.arrowBack && (<FontAwesomeIcon icon={faArrowLeft}/>
-                )}
-            </div>
 
-            <div className="info-evento-top-bar"> EGPM 2020</div>
+            {/*<div className="icon-menu" onClick={props.arrowBack && props.history.goBack}>*/}
+            {/*    {+props.arrowBack === 1 ?  (<FontAwesomeIcon icon={faArrowLeft}/>*/}
+            {/*    ) : (*/}
+            {/*        <FontAwesomeIcon icon={faBars}/>*/}
+            {/*    )}*/}
+            {/*</div>*/}
+
+            {props.title && (
+                <div className="info-evento-top-bar" onClick={props.clickTitle} title='Evento'>
+                    <span><FontAwesomeIcon icon={faStar}/></span>
+                    <span> {props.title}</span>
+                </div>
+            )}
+
+            {props.subtitle && (
+                <div className="info-evento-top-bar-subtitle" onClick={props.clickSubTitle} title='Edição' >
+                    <span><FontAwesomeIcon icon={faCalendarAlt}/></span>
+                    <span> {props.subtitle}</span>
+                </div>
+            )}
 
             <div className="end-top-bar">
                 <div className="top-bar-item" onClick={props.clickCog}>

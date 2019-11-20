@@ -1,12 +1,14 @@
 import {
     faArrowLeft,
-    faBuilding,
-    faCodeBranch,
+    faBuilding, faCalendarAlt,
+    faCodeBranch, faCoins,
     faEdit,
-    faHome,
+    faHome, faMoneyBillAlt, faPlusCircle,
     faStar,
-    faUserAlt
+    faUserAlt, faUsers
 } from "@fortawesome/free-solid-svg-icons";
+import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons/faSignOutAlt";
+import {faCogs} from "@fortawesome/free-solid-svg-icons/faCogs";
 
 
 export function ItensMenu(history) {
@@ -19,10 +21,24 @@ export function ItensMenu(history) {
             }
         },
         {
-            icon: faUserAlt,
-            text: 'Usuários',
+            icon: faStar,
+            text: 'Evento',
             action: () => {
-                history.push('/usuario');
+                history.push('/evento');
+            }
+        },
+        {
+            icon: faCalendarAlt,
+            text: 'Edições',
+            action: () => {
+                history.push('/edicoes');
+            }
+        },
+        {
+            icon: faUsers,
+            text: 'Colaboradores',
+            action: () => {
+                history.push('/colaboradores');
             }
         },
         {
@@ -33,14 +49,22 @@ export function ItensMenu(history) {
             }
         },
         {
-            icon: faStar,
-            text: 'Eventos',
+            icon: faMoneyBillAlt,
+            text: 'Caixa',
             action: () => {
-                history.push('/evento');
+                history.push('/caixa');
             }
         },
+        // {
+        //     icon: faCogs,
+        //     text: 'Configurações',
+        //     action: () => {
+        //         history.push('/caixa');
+        //     }
+        // },
+
         {
-            icon: faArrowLeft,
+            icon: faSignOutAlt,
             text: 'Sair',
             action: () => {
                 history.push('/login');
@@ -54,7 +78,10 @@ export function ItensMenuSuspenso(history) {
     return [
         {
             icon: faEdit,
-            text: 'Editar perfil'
+            text: 'Editar perfil',
+            action: () => {
+                history.push('/perfil')
+            }
         },
         {
             icon: faCodeBranch,
@@ -64,7 +91,14 @@ export function ItensMenuSuspenso(history) {
             }
         },
         {
-            icon: faArrowLeft,
+            icon: faPlusCircle,
+            text: 'Novo evento',
+            action: () => {
+                history.push('/evento/novo');
+            }
+        },
+        {
+            icon: faSignOutAlt,
             text: 'Sair',
             action: () => {
                 history.push('/login');

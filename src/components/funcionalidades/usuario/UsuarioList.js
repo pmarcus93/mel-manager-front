@@ -1,47 +1,82 @@
 import React, {useEffect, useState} from 'react';
 
-import {retornarEventosUsuario} from "../../../services/EventoService";
-import CardImageActions from "../../CardImageAction";
+import ItemList from "../../ItemList";
 import Loading from "../../Loading";
+import {desvincularAdministradorEvento, retornarAdministradoresEvento} from "../../../services/UsuarioEventoService";
+import HeaderFuncionalidade from "../../HeaderFuncionalidade";
+import {faTrash, faEdit} from "@fortawesome/free-solid-svg-icons";
+import ItemListEmpty from "../../ItemListEmpty";
 
 export default function UsuarioList(props) {
 
-    const [usuarios, setUsuarios] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [usuariosAdministradores, setUsuariosAdministradores] = useState([]);
 
-    const buscaEventos = async function () {
-        setLoading(true);
-        // await retornarEventosUsuario(1, setEventos);
-        setLoading(false);
+    const desvincularColaborador = user_id => {
+        let data = {
+            user_id,
+            evento_id: props.evento_id
+        };
+
+        desvincularAdministradorEvento(data, () => buscarColaboradores())
 
     };
 
+    const buscarColaboradores = () => {
+        setLoading(true);
+        retornarAdministradoresEvento(props.evento_id, setUsuariosAdministradores, () => setLoading(false));
+    };
+
     useEffect(() => {
-        buscaEventos();
-    }, []);
+        if (props.evento_id) {
+            buscarColaboradores();
+        }
+
+    }, [props.evento_id]);
 
     return (
-        <div className='row '>
+        <div className='row funcionalidade-padrao'>
 
-            {loading ? (
-                <Loading/>
-            ) : (
-                <div className='col-12 card-group'>
+            <div className='col-12'>
+
+                <HeaderFuncionalidade text='Usuários que administram o evento corrente.'/>
+
+                {loading ? (
+                    <Loading/>
+                ) : (
                     <div className='row'>
-                        {usuarios.map(evento => (
+                        {usuariosAdministradores.map(usuario => (
+                            <div className='card-evento col-12 my-1'>
+                                <ItemList
+                                    nome={usuario.name}
+                                    descricao={usuario.email + ' | ' + usuario.telefone}
+                                    buttons={[
+                                        // {
+                                        //     text: 'Editar',
+                                        //     icon: faEdit,
+                                        //     action: () => props.history.push('/colaborador/' + usuario.id)
+                                        // },
+                                        {
+                                            text: 'Remover',
+                                            icon: faTrash,
+                                            action: () => desvincularColaborador(usuario.id)
+                                        }
+                                    ]}
 
-                            <div className='card-evento col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3'>
-                                <CardImageActions
-                                    nome={evento.nome}
-                                    actionButton={() => props.history.push('/evento/' + evento.evento_id)}
                                 />
                             </div>
-
                         ))}
-                    </div>
-                </div>
-            )}
 
+                        {usuariosAdministradores.length === 0 && (
+                            <div className='card-evento col-12 my-1'>
+                                <ItemListEmpty text='Não existem usuários administrando este evento.'/>
+                            </div>
+                        )}
+
+                    </div>)}
+
+
+            </div>
 
         </div>
     )

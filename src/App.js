@@ -6,6 +6,8 @@ import './App.scss';
 import LoginPage from "./pages/LoginPage";
 import PainelPage from "./pages/PainelPage";
 import SelectPerfil from "./pages/SelectPerfil";
+import SignIn from "./pages/SignIn";
+import './components/funcionalidades/evento/Evento.scss';
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Route path="/login" exact component={LoginPage}/>
+                <Route path="/sign-in" exact component={SignIn}/>
                 <Route path="/selecionarperfil" exact
                        render={({history}) => (
                            <SelectPerfil
@@ -38,7 +41,17 @@ function App() {
                                history={history}
                            />
                        )}/>
-                <Route path="/" component={PainelPage}/>
+                <Route path="/"
+                       render={({history}) => (
+                           <PainelPage
+                               history={history}
+                               evento_id={evento_id}
+                               edicao_id={edicao_id}
+                               setEvento_id={setEvento_id}
+                               setEdicao_id={setEdicao_id}
+                           />
+                       )}
+                />
             </Switch>
 
         </BrowserRouter>

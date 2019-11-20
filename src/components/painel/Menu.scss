@@ -3,17 +3,16 @@
 
 .sidebar {
   height: 100%;
-  background: #ddd;
+  background: #325863;
   padding: 0;
   position: relative;
   transition: all .5s ease;
   width: 0;
-  opacity: 0;
   overflow: hidden;
+  color: $primary-color-mel-contrast;
 
   @include md {
     width: 250px;
-    opacity: 1;
   }
 
 }
@@ -24,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $secundary-color;
+  background: $primary-color-mel;
 }
 
 .logo-bar img {
@@ -37,17 +36,45 @@
   overflow: hidden;
   border-radius: 50%;
   margin: auto;
+  position: relative;
 }
 
-.perfil-avatar-bar img {
+.fundo-perfil-imagem {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.fundo-perfil-imagem img {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
+.capitalize-perfil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 80px;
+  display: flex;
+
+  span {
+    text-align: center;
+    font-size: 3.5em;
+    color: white;
+    font-weight: 600;
+    margin: auto;
+    display: flex;
+  }
+
+}
+
 .perfil-info-bar {
   width: 100%;
-  padding: 40px 0;
+  margin-top: 64px;
+  padding: 20px;
 }
 
 .perfil-info {

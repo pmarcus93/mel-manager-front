@@ -3,29 +3,58 @@
 
 .top-bar {
   height: 64px;
-  width: 100%;
-  background: $secundary-color;
+  background: $primary-color-mel;
   padding: 10px;
   display: flex;
-  color: $primary-color;
+  color: $primary-color-mel-contrast;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  transition: all .2s ease;
+
+  @include md {
+    width: calc(100%);
+  }
+
 }
 
 .icon-menu {
   align-self: center;
-  display: flex;
+  //display: flex;
   font-size: 1.5em;
   cursor: pointer;
   opacity: .7;
   transition: all .2s ease-out;
+  padding: 0 5px;
 }
 
 .info-evento-top-bar {
   align-self: center;
+  font-weight: 600;
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.2em;
   cursor: pointer;
-  margin-left: 30px;
+  //margin-left: 20px;
+
+  span {
+    margin: auto 5px;
+  }
 }
+
+.info-evento-top-bar-subtitle {
+  align-self: center;
+  font-weight: 300;
+  display: flex;
+  font-size: 1.2em;
+  border-left: $primary-color-mel-contrast 1px solid;
+  padding-left: 5px;
+  margin-left: 5px;
+
+  span {
+    margin: auto 5px;
+  }
+}
+
 
 .icon-menu:hover {
   opacity: 1;
